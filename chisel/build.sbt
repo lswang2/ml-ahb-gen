@@ -4,7 +4,7 @@ version := "2.3-SNAPSHOT"
 
 name := "ahb-mli"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.12"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-language:reflectiveCalls","-language:implicitConversions","-language:postfixOps")
 

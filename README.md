@@ -2,6 +2,7 @@
 
 # ml-ahb-gen
 A Verilog AMBA AHB Multilayer interconnect generator
++ APB buses
 
 Based on the Hasti multilayer interconnect (https://github.com/ucb-bar/junctions) (written in Chisel).
 Using JSON as the input format (see example.json)
@@ -10,7 +11,7 @@ Note : you must have sbt in your path.
 ## Checkout 
 
 ```bash
-git clone  --recursive   https://github.com/rbarzic/ml-ahb-gen.git
+git clone  --recursive   https://github.com/lswang2/ml-ahb-gen.git
 ```
 
 ## Usage :
@@ -20,4 +21,4 @@ make all JSON=<path to your JSON file>
 ```
 (just use ```make all``` to try out)
 
-Resulting Verilog file is  chisel/Ahbmli.v
+Resulting Verilog file is  chisel/BusGen.v

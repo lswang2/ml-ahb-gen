@@ -1,23 +1,32 @@
 {
-    "masters": [
-        "jtag",
-        "dmem",
-        "imem"
-    ],
+    "masters": [ "jtag", "dmem", "imem" ],
     "slaves": {
         "codemem": {
-            "address_range": [
-                31,
-                28
-            ],
+            "address_range": [ 31, 28 ],
             "address_value": 0
         },
         "datamem": {
-            "address_range": [
-                31,
-                28
-            ],
+            "address_range": [ 31, 28 ],
             "address_value": 2
-        }
+        },
+		"bridge0": {
+			"bridge": true,
+            "address_range": [ 31, 28 ],
+            "address_value": 3,
+			"slaves": {
+				"i2c": {
+					"address_range": [ 27, 24 ],
+					"address_value": 0
+				},
+				"spi": {
+					"address_range": [ 27, 24 ],
+					"address_value": 1
+				},
+				"uart": {
+					"address_range": [ 27, 24 ],
+					"address_value": 2
+				}
+			}
+		}
     }
 }
