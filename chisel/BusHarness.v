@@ -1710,7 +1710,7 @@ module PociBus(
   assign T32 = T1 ? io_slaves_0_prdata : 32'h0;
 endmodule
 
-module BusGen(input clk, input reset,
+module BusHarness(input clk, input reset,
     input [31:0] io_jtag_haddr,
     input  io_jtag_hwrite,
     input [2:0] io_jtag_hsize,

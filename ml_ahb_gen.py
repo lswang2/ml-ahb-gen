@@ -5,13 +5,13 @@ import json
 
 # The template for the main file
 tpl_file='''
-package BusGen
+package BusHarness
 
 import Chisel._
 import cde.{{Parameters, Field}}
 import junctions._
 
-class BusGen extends Module {{
+class BusHarness extends Module {{
   implicit val p = Parameters.empty
   val io = new Bundle {{
 {ports}
@@ -26,15 +26,15 @@ class BusGen extends Module {{
 }}
 
 
-class BusGenTests(c: BusGen) extends Tester(c) {{
+class BusHarnessTests(c: BusHarness) extends Tester(c) {{
   step(1)
 }}
 
-object BusGen {{
+object BusHarness {{
   def main(args: Array[String]): Unit = {{
     val tutArgs = args.slice(1, args.length)
-    chiselMainTest(tutArgs, () => Module(new BusGen())) {{
-      c => new BusGenTests(c) }}
+    chiselMainTest(tutArgs, () => Module(new BusHarness())) {{
+      c => new BusHarnessTests(c) }}
   }}
 }}
 '''
@@ -166,6 +166,6 @@ if __name__ == '__main__':
 	d['conns'] = gen_connections(ml_ahb)
 	txt = tpl_file.format(**d)
 
-	outfile_name = args.outdir + "/BusGen.scala"
+	outfile_name = args.outdir + "/BusHarness.scala"
 	with open(outfile_name,'w') as f:
 		f.write(txt)

@@ -1,11 +1,11 @@
 
-package BusGen
+package BusHarness
 
 import Chisel._
 import cde.{Parameters, Field}
 import junctions._
 
-class BusGen extends Module {
+class BusHarness extends Module {
   implicit val p = Parameters.empty
   val io = new Bundle {
     val jtag = new HastiMasterIO().flip
@@ -47,14 +47,14 @@ class BusGen extends Module {
 }
 
 
-class BusGenTests(c: BusGen) extends Tester(c) {
+class BusHarnessTests(c: BusHarness) extends Tester(c) {
   step(1)
 }
 
-object BusGen {
+object BusHarness {
   def main(args: Array[String]): Unit = {
     val tutArgs = args.slice(1, args.length)
-    chiselMainTest(tutArgs, () => Module(new BusGen())) {
-      c => new BusGenTests(c) }
+    chiselMainTest(tutArgs, () => Module(new BusHarness())) {
+      c => new BusHarnessTests(c) }
   }
 }
